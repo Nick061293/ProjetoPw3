@@ -5,6 +5,6 @@ $(document).ready(function() {
         let url = $(this).attr('href')
             //limpar a div
         $('#conteudo').empty()
-        $('#conteudo').load('url')
+        $('#conteudo').load(url)
     })
 })
