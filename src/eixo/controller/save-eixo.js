@@ -1,26 +1,30 @@
 $(document).ready(function() {
+
     $('.btn-save').click(function(e) {
         e.preventDefault()
 
         let dados = $('#form-eixo').serialize()
 
-        dados += `&op=${$('.btn-save'.attr('data-op'))}`
+        dados += `&operacao=${$('.btn-save').attr('data-operation')}`
 
         $.ajax({
             type: 'POST',
             dataType: 'json',
             assync: true,
             data: dados,
-            url: '../modelo/save-eixo.php',
+            url: 'src/eixo/model/save-eixo.php',
             success: function(dados) {
-                Swal.file({
-                    title: 'ProjetoPW3',
+                Swal.fire({
+                    title: 'Library',
                     text: dados.mensagem,
                     icon: dados.tipo,
                     confirmButtonText: 'OK'
                 })
+
                 $('#modal-eixo').modal('hide')
+                $('#eixo').DataTable().ajax.reload()
             }
         })
     })
+
 })
