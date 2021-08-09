@@ -43,7 +43,7 @@
         } else {
             // Se minha variável operação estiver vazia então devo gerar os scripts de update
             try{
-                $stmt = $pdo->prepare('UPDATE USUARIO SET NOME = :nome, EMAIL = :email, SENHA = :senha, TIPO_USUARIO_IDTIPO_USUARIO = :tu,CURSO_IDCURSO = :cu WHERE IDUSUARIO = :id');
+                $stmt = $pdo->prepare('UPDATE USUARIO SET NOME = :nome, EMAIL = :email, SENHA = :senha, TIPO_USUARIO_IDTIPO_USUARIO = :tu, CURSO_IDCURSO = :cu WHERE IDUSUARIO = :id');
                 $stmt->execute(array(
                     ':id' => $IDUSUARIO,
                     ':nome' => utf8_decode($requestData['NOME']),

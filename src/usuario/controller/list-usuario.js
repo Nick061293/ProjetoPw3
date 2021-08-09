@@ -1,16 +1,16 @@
 $(document).ready(function() {
-    $('#eixo').DataTable({
+    $('#usuario').DataTable({
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": "src/eixo/model/list-eixo.php",
+            "url": "src/usuario/model/list-usuario.php",
             "type": "POST"
         },
         "language": {
             "url": "libs/DataTables/pt_br.json"
         },
         "columns": [{
-                "data": 'IDEIXO',
+                "data": 'IDUSUARIO',
                 "className": 'text-center'
             },
             {
@@ -18,7 +18,7 @@ $(document).ready(function() {
                 "className": 'text-center'
             },
             {
-                "data": 'IDEIXO',
+                "data": 'IDUSUARIO',
                 "orderable": false,
                 "searchable": false,
                 "className": 'text-center',

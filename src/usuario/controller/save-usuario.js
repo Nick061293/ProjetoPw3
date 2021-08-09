@@ -3,7 +3,7 @@ $(document).ready(function() {
     $('.btn-save').click(function(e) {
         e.preventDefault()
 
-        let dados = $('#form-eixo').serialize()
+        let dados = $('#form-usuario').serialize()
 
         dados += `&operacao=${$('.btn-save').attr('data-operation')}`
 

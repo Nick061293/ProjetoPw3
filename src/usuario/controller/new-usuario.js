@@ -5,14 +5,39 @@ $(document).ready(function() {
         $('.modal-title').empty()
         $('.modal-body').empty()
 
-        $('.modal-title').append('Adicionar novo eixo tecnológico')
+        $('.modal-title').append('Adicionar novo usuário')
 
-        $('.modal-body').load('src/eixo/view/form-eixo.html')
+        $('.modal-body').load('src/usuario/view/form-usuario.html', function() {
+            //TDS OS TIPOS DE USUARIOS NO BD
+            $.ajax({
+                    type: 'POST',
+                    dataType: 'json',
+                    assync: true,
+                    url: 'src/tipo-usuario/model/all-tipo.php',
+                    success: function(dados) {
+                        for (const dado of dados) {
+                            $('#TIPO_USUARIO_IDTIPO_USUARIO').append(`<option value="${dado.IDTIPO_USUARIO}">${dado.DESCRICAO}</option>`)
+                        }
+                    }
+                })
+                //TDS OS CURSOS EXISTENTES NO BD
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                assync: true,
+                url: 'src/curso/model/all-curso.php',
+                success: function(dados) {
+                    for (const dado of dados) {
+                        $('#CURSO_IDCURSO').append(`<option value="${dado.IDCURSO}">${dado.NOME}</option>`)
+                    }
+                }
+            })
+        })
 
         $('.btn-save').show()
 
         $('.btn-save').attr('data-operation', 'insert')
 
-        $('#modal-eixo').modal('show')
+        $('#modal-usuario').modal('show')
     })
 })
