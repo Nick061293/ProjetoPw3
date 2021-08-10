@@ -7,7 +7,7 @@
     $dados = array();
 
     //Query de consulta ao banco de dados
-    $sql = 'SELECT * FROM TIPO_USUARIO ORDER BY NOME ASC';
+    $sql = 'SELECT * FROM TIPO_USUARIO ORDER BY DESCRICAO ASC';
 
     //executar query
     $resultado = $pdo->query($sql);

@@ -12,7 +12,7 @@ $(document).ready(function() {
             dataType: 'json',
             assync: true,
             data: dados,
-            url: 'src/eixo/model/save-eixo.php',
+            url: 'src/usuario/model/save-usuario.php',
             success: function(dados) {
                 Swal.fire({
                     title: 'Library',
@@ -20,11 +20,9 @@ $(document).ready(function() {
                     icon: dados.tipo,
                     confirmButtonText: 'OK'
                 })
-
-                $('#modal-eixo').modal('hide')
-                $('#eixo').DataTable().ajax.reload()
+                $('#modal-usuario').modal('hide')
+                $('#table-usuario').DataTable().ajax.reload()
             }
         })
     })
-
 })
