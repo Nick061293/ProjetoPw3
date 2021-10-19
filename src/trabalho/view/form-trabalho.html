@@ -32,22 +32,16 @@
 
         <div class="col-12 col-md-6">
             <label>Co-orientador</label>
-            <select type="text" name="COORIENTADOR" id="COORIENTADOR" class="form-control"></select>
+            <input type="text" name="COORIENTADOR" id="COORIENTADOR" class="form-control">
         </div>
 
     </div>
 
     <div class="form-group">
-        <input type="text" name="AUTOR" id="AUTOR" class="form-control" placeholder="Digite o nome do autor...">
+        <input type="text" name="AUTOR[]" id="AUTOR" class="form-control" placeholder="Digite o nome do autor...">
     </div>
-
-    <div class="form-group" id="autores">
-
-    </div>
-    <div class="form-group" id="fix">
-
-    </div>
-
+    <div class="form-group" id="autores"></div>
+    <div class="form-group" id="fix"></div>
     <div class="form-group">
         <label>Arquivo</label>
         <input type="file" name="ARQUIVO" id="ARQUIVO" class="form-control">

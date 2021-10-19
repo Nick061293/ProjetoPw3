@@ -31,7 +31,7 @@
             $novoNome = uniqid ( time () ) . '.' . $extensao;
 
             // Concatena a pasta com o nome
-            $destino = 'arquivossalvo/' . $novoNome;
+            $destino = 'arquivos/' . $novoNome;
 
             // tenta mover o arquivo para o destino
             if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
@@ -69,6 +69,23 @@
                                 ':f' => utf8_decode($requestData['COORIENTADOR']),
                                 ':g' => $novoNome
                             ));
+
+                            $sql = $pdo->query("SELECT * FROM TRABALHO ORDER BY IDTRABALHO DESC LIMIT 1");
+
+                            while($resultado=$sql->fetch(PDO::FETCH_ASSOC)){
+                                $IDTRABALHO = $resultado ['IDTRABALHO'];
+                            }
+
+                            $indice = count(array_filter($requestData['AUTOR']));
+
+                            for($i=0; $i<$indice ;$i++){
+                                $stmt = $pdo -> prepare('INSERT INTO AUTOR (TRABALHO_IDTRABALHO, USUARIO_IDUSUARIO) VALUES (:a, :b)');
+                                $stmt -> execute(array(
+                                    ':a' => $IDTRABALHO,
+                                    ':b' => $requestData['AUTOR'][$i]
+                                ));
+                            }
+
                             $retorno = array(
                                 "tipo" => 'success',
                                 "mensagem" => 'Trabalho cadastrado com sucesso.'
