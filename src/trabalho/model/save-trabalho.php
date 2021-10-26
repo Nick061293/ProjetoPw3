@@ -76,13 +76,13 @@
                                 $IDTRABALHO = $resultado ['IDTRABALHO'];
                             }
 
-                            $indice = count(array_filter($requestData['TRABALHO']));
+                            $indice = count(array_filter($requestData['AUTOR']));
 
                             for($i=0; $i<$indice ;$i++){
                                 $stmt = $pdo -> prepare('INSERT INTO AUTOR (TRABALHO_IDTRABALHO, USUARIO_IDUSUARIO) VALUES (:a, :b)');
                                 $stmt -> execute(array(
                                     ':a' => $IDTRABALHO,
-                                    ':b' => $requestData['AUTOR'][$i]
+                                    ':b' => $requestData['IDUSUARIO'][$i]
                                 ));
                             }
 
