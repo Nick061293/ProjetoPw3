@@ -5,7 +5,7 @@ function selectAuthor() {
         let nome = $(this).attr('data-name')
         $('#fix').append(`
             <div class="alert alert-success">${nome}</div>
-            <input type="hidden" name="USUARIO_IDUSUARIO" value="${id}" />
+            <input type="hidden" name="USUARIO_IDUSUARIO[]" value="${id}" />
         `)
         $('#' + id).hide()
     })
